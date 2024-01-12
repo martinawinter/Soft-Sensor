@@ -1,0 +1,25 @@
+Soft sensor Script
+with P
+FSP = 3		
+if .IntA = 0 then
+ 	IntA = DateDiff("s", "1/1/1970 00:00:00", Now())
+end if
+if .IntB = 0 then
+IntB = DateDiff("s","1/1/1970 00:00:00", Now())+10800       
+end if
+if DateDiff("s","1/1/1970 00:00:00",Now())-.IntA > 10200 then          
+.Phase = 1 
+  if DateDiff("s","1/1/1970 00:00:00", Now()-.IntB > 1 
+  or .DOPV < 30 then
+  LogMessage("Phase2")	
+  IntA  = DateDiff("s","1/1/1970 00:00:00",Now())
+  IntB  = .IntA + 10800	
+  .Phase = 2
+  end if 
+  else .Phase = 2 
+  end if				       			
+select Case .Phase
+Case 1: .FSP = 0
+Case 2: .FSP = 3		
+end select
+end with
